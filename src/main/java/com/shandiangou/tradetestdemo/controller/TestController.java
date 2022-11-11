@@ -4,6 +4,7 @@ import com.shandiangou.trade.domain.BizOrderDO;
 import com.shandiangou.tradetestdemo.domain.DO.BizOrder;
 import com.shandiangou.tradetestdemo.service.BizOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/test")
 public class TestController {
     @Autowired
+//    @Qualifier("bizOrderServiceImpl")
     private BizOrderService bizOrderService;
 
 
