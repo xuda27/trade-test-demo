@@ -16,4 +16,6 @@
 
         <table tableName="biz_order"/>
     </context>
+
+    <!--mvn mybatis-generator:generate 自动生成-->
 </generatorConfiguration>
