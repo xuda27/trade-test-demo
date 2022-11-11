@@ -1,0 +1,19 @@
+<!DOCTYPE generatorConfiguration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="simple" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://daily1.master.mysql.sdg.com:3306/trade" userId="dba_monitor"
+                        password="DBAmonitor#321"/>
+
+        <javaModelGenerator targetPackage="com.shandiangou.tradetestdemo.domain.DO" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.shandiangou.tradetestdemo.mapper"
+                             targetProject="src/main/java"/>
+
+        <table tableName="biz_order"/>
+    </context>
+</generatorConfiguration>
