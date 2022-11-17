@@ -25,5 +25,5 @@ public interface BizOrderService {
      */
     BizOrder getInnerBizOrderById(Long bizOrderId);
 
-    SubBizOrder getInnerSubBisOrderById(Long bizOrderId);
+    SubBizOrder getInnerSubBizOrderById(Long bizOrderId);
 }

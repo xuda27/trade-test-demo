@@ -2,9 +2,9 @@ package com.shandiangou.tradetestdemo.controller;
 
 import com.shandiangou.trade.domain.BizOrderDO;
 import com.shandiangou.tradetestdemo.domain.DO.BizOrder;
+import com.shandiangou.tradetestdemo.domain.DO.SubBizOrder;
 import com.shandiangou.tradetestdemo.service.BizOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,7 +38,7 @@ public class TestController {
     }
 
     @RequestMapping("/getInnerSubBisOrderById")
-    public BizOrder getInnerSubBisOrderById(@RequestParam Long bizOrderId) {
-        return bizOrderService.getInnerBizOrderById(bizOrderId);
+    public SubBizOrder getInnerSubBisOrderById(@RequestParam Long bizOrderId) {
+        return bizOrderService.getInnerSubBizOrderById(bizOrderId);
     }
 }

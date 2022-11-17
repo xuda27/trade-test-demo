@@ -54,7 +54,7 @@ public class BizOrderServiceImpl implements BizOrderService {
     }
 
     @Override
-    public SubBizOrder getInnerSubBisOrderById(Long bizOrderId) {
+    public SubBizOrder getInnerSubBizOrderById(Long bizOrderId) {
         SubBizOrderExample subBizOrderExample=new SubBizOrderExample();
         SubBizOrderExample.Criteria c = subBizOrderExample.createCriteria();
         c.andBizOrderIdEqualTo(bizOrderId);
@@ -62,7 +62,8 @@ public class BizOrderServiceImpl implements BizOrderService {
         if (CollectionUtils.isEmpty(list)) {
             return null;
         }
-        return null;
+        return list.get(0);
     }
+
 
 }
