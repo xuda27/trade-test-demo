@@ -36,4 +36,9 @@ public class TestController {
     public BizOrder getInnerBizOrderById(@RequestParam Long bizOrderId) {
         return bizOrderService.getInnerBizOrderById(bizOrderId);
     }
+
+    @RequestMapping("/getInnerSubBisOrderById")
+    public BizOrder getInnerSubBisOrderById(@RequestParam Long bizOrderId) {
+        return bizOrderService.getInnerBizOrderById(bizOrderId);
+    }
 }

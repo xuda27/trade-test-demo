@@ -4,7 +4,10 @@ import com.shandiangou.trade.api.TradeService;
 import com.shandiangou.trade.domain.BizOrderDO;
 import com.shandiangou.tradetestdemo.domain.DO.BizOrder;
 import com.shandiangou.tradetestdemo.domain.DO.BizOrderExample;
+import com.shandiangou.tradetestdemo.domain.DO.SubBizOrder;
+import com.shandiangou.tradetestdemo.domain.DO.SubBizOrderExample;
 import com.shandiangou.tradetestdemo.mapper.BizOrderMapper;
+import com.shandiangou.tradetestdemo.mapper.SubBizOrderMapper;
 import com.shandiangou.tradetestdemo.service.BizOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -24,6 +27,8 @@ public class BizOrderServiceImpl implements BizOrderService {
 
     @Autowired
     private BizOrderMapper bizOrderMapper;
+    @Autowired
+    private SubBizOrderMapper subBizOrderMapper;
 
     @Override
     public BizOrderDO getOutBizOrderById(Long bizOrderId) {
@@ -46,6 +51,18 @@ public class BizOrderServiceImpl implements BizOrderService {
             return null;
         }
         return list.get(0);
+    }
+
+    @Override
+    public SubBizOrder getInnerSubBisOrderById(Long bizOrderId) {
+        SubBizOrderExample subBizOrderExample=new SubBizOrderExample();
+        SubBizOrderExample.Criteria c = subBizOrderExample.createCriteria();
+        c.andBizOrderIdEqualTo(bizOrderId);
+        List<SubBizOrder> list = subBizOrderMapper.selectByExample(subBizOrderExample);
+        if (CollectionUtils.isEmpty(list)) {
+            return null;
+        }
+        return null;
     }
 
 }

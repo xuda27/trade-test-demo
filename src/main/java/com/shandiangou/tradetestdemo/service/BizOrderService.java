@@ -2,6 +2,7 @@ package com.shandiangou.tradetestdemo.service;
 
 import com.shandiangou.trade.domain.BizOrderDO;
 import com.shandiangou.tradetestdemo.domain.DO.BizOrder;
+import com.shandiangou.tradetestdemo.domain.DO.SubBizOrder;
 
 /**
  * 订单服务
@@ -23,4 +24,6 @@ public interface BizOrderService {
      * @return
      */
     BizOrder getInnerBizOrderById(Long bizOrderId);
+
+    SubBizOrder getInnerSubBisOrderById(Long bizOrderId);
 }

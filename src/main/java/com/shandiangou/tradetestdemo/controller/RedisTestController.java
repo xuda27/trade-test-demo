@@ -14,7 +14,7 @@ public class RedisTestController {
     @GetMapping("/redisTest")
     public String testRedis() {
         //设置值到redis
-        redisTemplate.opsForValue().set("name","122222222222");
+        redisTemplate.opsForValue().set("name","555555555555");
         //从redis获取值
         String name = (String)redisTemplate.opsForValue().get("name");
         return name;

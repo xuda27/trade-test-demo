@@ -14,7 +14,7 @@
         <javaClientGenerator type="XMLMAPPER" targetPackage="com.shandiangou.tradetestdemo.mapper"
                              targetProject="src/main/java"/>
 
-        <table tableName="biz_order"/>+3
+        <table tableName="sub_biz_order"/>
     </context>
 
     <!--mvn mybatis-generator:generate 自动生成-->
