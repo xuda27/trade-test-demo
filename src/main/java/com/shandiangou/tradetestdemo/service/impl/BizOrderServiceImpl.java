@@ -11,6 +11,7 @@ import com.shandiangou.tradetestdemo.mapper.SubBizOrderMapper;
 import com.shandiangou.tradetestdemo.service.BizOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
@@ -63,6 +64,23 @@ public class BizOrderServiceImpl implements BizOrderService {
             return null;
         }
         return list.get(0);
+    }
+
+    @Override
+    public void insertOutOrderById(Long bizOrderId) {
+        try {
+            BizOrderDO outOrder = tradeService.getOrderByBizOrderId(bizOrderId);
+            BizOrder bizOrder = new BizOrder();
+            BeanUtils.copyProperties(outOrder,bizOrder);
+            bizOrderMapper.insert(bizOrder);
+        } catch (Exception e) {
+            log.error("查询订单失败：" + e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public void updateBizOrderBuyerNickById(BizOrder bizOrder, Long bizOrderId) {
+
     }
 
 

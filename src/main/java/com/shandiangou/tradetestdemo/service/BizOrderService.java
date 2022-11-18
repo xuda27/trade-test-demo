@@ -26,4 +26,8 @@ public interface BizOrderService {
     BizOrder getInnerBizOrderById(Long bizOrderId);
 
     SubBizOrder getInnerSubBizOrderById(Long bizOrderId);
+
+    void insertOutOrderById(Long bizOrderId);
+
+    void updateBizOrderBuyerNickById(BizOrder bizOrder, Long bizOrderId);
 }

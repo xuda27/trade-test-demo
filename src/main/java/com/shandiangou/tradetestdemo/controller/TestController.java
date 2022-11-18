@@ -27,6 +27,19 @@ public class TestController {
         return bizOrderService.getOutBizOrderById(bizOrderId);
     }
 
+    @RequestMapping("/insertOutOrderById")
+    public void insertOutOrderById(@RequestParam Long bizOrderId) {
+        bizOrderService.insertOutOrderById(bizOrderId);
+    }
+
+    @RequestMapping("/updateBizOrderBuyerNickById")
+    public void updateBizOrderBuyerNickById(@RequestParam Long bizOrderId,String buyerNick) {
+        BizOrder bizOrder=new BizOrder();
+        bizOrder.setBizOrderId(bizOrderId);
+        bizOrder.setBuyerNick(buyerNick);
+        bizOrderService.updateBizOrderBuyerNickById(bizOrder,bizOrderId);
+    }
+
     /**
      * 调用返回内部订单
      * @param bizOrderId
