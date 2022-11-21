@@ -72,6 +72,9 @@ public class BizOrderServiceImpl implements BizOrderService {
             BizOrderDO outOrder = tradeService.getOrderByBizOrderId(bizOrderId);
             BizOrder bizOrder = new BizOrder();
             BeanUtils.copyProperties(outOrder,bizOrder);
+            bizOrder.setLogisticsStatus(outOrder.getLogisticsStatus().byteValue());
+            bizOrder.setUs2sellerpayStatus(outOrder.getUs2sellerpayStatus().byteValue());
+            bizOrder.setUs2sellerpayBlockedType((byte)outOrder.getUs2sellerpayBlockedType());
             bizOrderMapper.insert(bizOrder);
         } catch (Exception e) {
             log.error("查询订单失败：" + e.getMessage(), e);
@@ -80,7 +83,18 @@ public class BizOrderServiceImpl implements BizOrderService {
 
     @Override
     public void updateBizOrderBuyerNickById(BizOrder bizOrder, Long bizOrderId) {
+        BizOrderExample bizOrderExample = new BizOrderExample();
+        BizOrderExample.Criteria c = bizOrderExample.createCriteria();
+        c.andBizOrderIdEqualTo(bizOrderId);
+        bizOrderMapper.updateByExampleSelective(bizOrder,bizOrderExample);
+    }
 
+    @Override
+    public void deleteBizOrderById(Long bizOrderId) {
+        BizOrderExample bizOrderExample = new BizOrderExample();
+        BizOrderExample.Criteria c = bizOrderExample.createCriteria();
+        c.andBizOrderIdEqualTo(bizOrderId);
+        bizOrderMapper.deleteByPrimaryKey(bizOrderId);
     }
 
 

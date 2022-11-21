@@ -30,4 +30,6 @@ public interface BizOrderService {
     void insertOutOrderById(Long bizOrderId);
 
     void updateBizOrderBuyerNickById(BizOrder bizOrder, Long bizOrderId);
+
+    void deleteBizOrderById(Long bizOrderId);
 }

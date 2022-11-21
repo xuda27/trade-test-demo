@@ -33,7 +33,7 @@ public class TestController {
     }
 
     @RequestMapping("/updateBizOrderBuyerNickById")
-    public void updateBizOrderBuyerNickById(@RequestParam Long bizOrderId,String buyerNick) {
+    public void updateBizOrderBuyerNickById(@RequestParam Long bizOrderId,@RequestParam String buyerNick) {
         BizOrder bizOrder=new BizOrder();
         bizOrder.setBizOrderId(bizOrderId);
         bizOrder.setBuyerNick(buyerNick);
@@ -53,5 +53,10 @@ public class TestController {
     @RequestMapping("/getInnerSubBisOrderById")
     public SubBizOrder getInnerSubBisOrderById(@RequestParam Long bizOrderId) {
         return bizOrderService.getInnerSubBizOrderById(bizOrderId);
+    }
+
+    @RequestMapping("/deleteBizOrderById")
+    public void deleteBizOrderById(@RequestParam Long bizOrderId) {
+        bizOrderService.deleteBizOrderById(bizOrderId);
     }
 }
